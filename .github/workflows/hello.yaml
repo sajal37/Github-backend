@@ -4,16 +4,18 @@ on:
   push:
 
 jobs:
-  say-hello:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print message
-        run: |
-          echo "Sajal Gupta"
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: list file
+        run: ls
 
   say-bye:
-    needs: say-hello
+    needs: test
     runs-on: ubuntu-latest
 
     steps:
