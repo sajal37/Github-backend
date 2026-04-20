@@ -1,10 +1,23 @@
-name: My First Workflow
+name: My First workflow
 
-on: push
+on:
+  push:
+
 jobs:
   say-hello:
     runs-on: ubuntu-latest
 
     steps:
       - name: Print message
-        run: echo "Hello, ${{ github.workflow }}!"
+        run: |
+          echo "Sajal Gupta"
+
+  say-bye:
+    needs: say-hello
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print message
+        run: |
+          echo "Bye!"
+          echo "Sajal Gupta pull request"
